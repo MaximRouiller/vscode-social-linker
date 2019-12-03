@@ -10,9 +10,9 @@ It has become clear that tracking links in our blog posts on multiple platforms 
 
 ## What's a `WT.mc_id` code
 
-That code however is a template. `WT.mc_id=TEMPLATE`.
+That code however is a template. `WT.mc_id=event-channel-user`.
 
-The template is split with the character `-` is has 3 components: the event, the channel, and the alias. 
+The template is split with the character `-` is has 3 components: the event, the channel, and the user. 
 
 Eg:
 
