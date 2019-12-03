@@ -1,6 +1,14 @@
 {
-    "files": ["README.md"],
-    "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square)](#contributors)",
-    "contributorTemplate": "<%= avatarBlock %><br /><%= contributions %>",
-    "contributors": []
+  "projectName": "vscode-social-linker",
+  "projectOwner": "MaximRouiller",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [],
+  "contributorsPerLine": 7
 }
