@@ -10,11 +10,26 @@
 		"Other"
 	],
 	"activationEvents": [
+		"onCommand:socialLinker.setAlias",
 		"onCommand:extension.helloWorld"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"configuration": {
+			"title": "Social Linker",
+			"properties": {
+				"socialLinker.alias": {
+					"type": "string",
+					"default": "",
+					"description": "Alias used to tag links"
+				}
+			}
+		},
 		"commands": [
+			{
+				"command": "socialLinker.setAlias",
+				"title": "Social Linker: Set alias"
+			},
 			{
 				"command": "extension.helloWorld",
 				"title": "Hello World"
