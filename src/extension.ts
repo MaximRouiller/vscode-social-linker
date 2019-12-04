@@ -38,6 +38,62 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	}));
 
+	context.subscriptions.push(vscode.commands.registerCommand('extension.helloWorld', () => {
+		addTracking: (url, event, channel, alias) => {
+		  let baseUrl = url || '';
+		  if (baseUrl === '') return;
+	  
+		  const defaultDomains = [
+			/(.*\.)?microsoft\.com$/,
+			/(.*\.)?msdn\.com$/,
+			/(.*\.)?visualstudio\.com$/,
+			'www.microsoftevents.com'
+		  ];
+	  
+		  const config = {
+			event: event,
+			channel: channel,
+			alias: alias
+		  };
+		  let domains = config.domains;
+		  if (domains || Array.isArray(domains)) {
+			domains = domains.concat(defaultDomains);
+		  } else {
+			domains = defaultDomains;
+		  }
+		  config.domains = domains;
+		  let shouldAddTrackingInfo = false;
+		  if (baseUrl) {
+	  
+			var re = new RegExp("^(http|https)://", "i");
+			if (!re.test(baseUrl)) {
+			  baseUrl = `https://${baseUrl}`;
+			}
+	  
+			const uri = new URL(baseUrl);
+			for (let i = 0; i < config.domains.length; i++) {
+			  let domain = config.domains[i];
+			  if (uri.host.match(domain)) {
+				shouldAddTrackingInfo = true;
+				break;
+			  }
+			}
+	  
+			if (shouldAddTrackingInfo) {
+			  //remove locale
+			  const localeRegex = /^\/\w{2}-\w{2}/g;
+			  uri.pathname = uri.pathname.replace(localeRegex, '');
+	  
+			  baseUrl = uri.toString();
+			}
+		  }
+		  if (shouldAddTrackingInfo) {
+			return appendTrackingInfo(config, baseUrl);
+		  }
+		  return baseUrl;
+		}
+	  };
+
 
 }
 
