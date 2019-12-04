@@ -38,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	}));
 
-	context.subscriptions.push(vscode.commands.registerCommand('extension.helloWorld', () => {
+	context.subscriptions.push(vscode.commands.registerCommand('extension.tracking', () => {
 		addTracking: (url, event, channel, alias) => {
 		  let baseUrl = url || '';
 		  if (baseUrl === '') return;
