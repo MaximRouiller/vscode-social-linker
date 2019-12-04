@@ -38,8 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	}));
 
-	context.subscriptions.push(vscode.commands.registerCommand('extension.tracking', () => {
-		addTracking: (url, event, channel, alias) => {
+	context.subscriptions.push(vscode.commands.registerCommand('extension.tracking', (url, event, channel, alias) => {
 		  let baseUrl = url || '';
 		  if (baseUrl === '') return;
 	  
@@ -93,6 +92,8 @@ export function activate(context: vscode.ExtensionContext) {
 		  return baseUrl;
 		}
 	  };
+
+	  context.subscriptions.push(vscode.commands.registerCommand('extension.appendTrackingInfo', () =>
 
 
 }
