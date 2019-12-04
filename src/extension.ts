@@ -93,7 +93,20 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	  };
 
-	  context.subscriptions.push(vscode.commands.registerCommand('extension.appendTrackingInfo', () =>
+	  function appendTrackingInfo(config, link) {
+		const tracking =
+		  'WT.mc_id=' + config.event + '-' + config.channel + '-' + config.alias;
+		//respect or ignore currect query string
+		const separator = link.indexOf('?') > 0 ? '&' : '?';
+		//respect or ignore hash
+		let hash = '';
+		const hasHash = link.indexOf('#');
+		if (hasHash != -1) {
+		  hash = link.substr(hasHash);
+		  link = link.replace(hash, '');
+		}
+		return link + separator + tracking + hash;
+	  }
 
 
 }
