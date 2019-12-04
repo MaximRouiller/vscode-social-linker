@@ -40,7 +40,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 	context.subscriptions.push(vscode.commands.registerCommand('extension.tracking', (url, event, channel, alias) => {
 		  let baseUrl = url || '';
-		  if (baseUrl === '') return;
+		  if (baseUrl === ''){
+			  return
+		  };
 	  
 		  const defaultDomains = [
 			/(.*\.)?microsoft\.com$/,
