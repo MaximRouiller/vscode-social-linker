@@ -9,6 +9,17 @@
   "imageSize": 100,
   "commit": true,
   "commitConvention": "angular",
-  "contributors": [],
-  "contributorsPerLine": 7
+  "contributors": [
+    {
+      "login": "salmanmkc",
+      "name": "Salman Muin Kayser Chishti",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/32169182?v=4",
+      "profile": "https://www.linkedin.com/in/SalmanMKC",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
