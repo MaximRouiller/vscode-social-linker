@@ -10,8 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:socialLinker.setAlias",
-		"onCommand:extension.helloWorld"
+		"onCommand:socialLinker.setAlias"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
