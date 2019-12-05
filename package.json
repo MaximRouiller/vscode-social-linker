@@ -29,6 +29,10 @@
 			{
 				"command": "socialLinker.setAlias",
 				"title": "Social Linker: Set alias"
+			},
+			{
+				"command": "socialLinker.tracking",
+				"title": "Social Linker: Tracking"
 			}
 		]
 	},
