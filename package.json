@@ -29,10 +29,6 @@
 			{
 				"command": "socialLinker.setAlias",
 				"title": "Social Linker: Set alias"
-			},
-			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
 			}
 		]
 	},
