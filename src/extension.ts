@@ -43,7 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
 			/(.*\.)?microsoft\.com$/,
 			/(.*\.)?msdn\.com$/,
 			/(.*\.)?visualstudio\.com$/,
-			'www.microsoftevents.com'
+			/www.microsoftevents.com'/
 		  ];
 	  
 		  const config = {
@@ -53,6 +53,7 @@ export function activate(context: vscode.ExtensionContext) {
 		  };
 		  var domains : string[];
 		  domains = [];
+		  defaultDomains = domains;
 		  domains = config.domains;
 		//   let domains = config.domains;
 		  if (domains || Array.isArray(domains)) {
