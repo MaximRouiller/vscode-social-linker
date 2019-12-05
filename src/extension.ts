@@ -33,7 +33,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	}));
 
-	context.subscriptions.push(vscode.commands.registerCommand('extension.tracking', (url: string, event: any, channel: any, alias: any, domains: any) => {
+	context.subscriptions.push(vscode.commands.registerCommand('extension.tracking', (url: string, event: any, channel: any, alias: any) => {
 		  let baseUrl = url || '';
 		  if (baseUrl === ''){
 			  return
@@ -52,7 +52,7 @@ export function activate(context: vscode.ExtensionContext) {
 			alias: alias
 		  };
 		  var arr : domains[] = []; 
-		  var domains = config.domains;
+		  domains = config.domains;
 		//   let domains = config.domains;
 		  if (domains || Array.isArray(domains)) {
 			domains = domains.concat(defaultDomains);
@@ -91,7 +91,7 @@ export function activate(context: vscode.ExtensionContext) {
 		  return baseUrl;
 		}));
 
-	  function appendTrackingInfo(config: { event: any; channel: any; alias: any; domains: any;}, link: string) {
+	  function appendTrackingInfo(config: { event: any; channel: any; alias: any;}, link: string) {
 		const tracking =
 		  'WT.mc_id=' + config.event + '-' + config.channel + '-' + config.alias;
 		//respect or ignore currect query string
