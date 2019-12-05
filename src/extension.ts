@@ -33,7 +33,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	}));
 
-	context.subscriptions.push(vscode.commands.registerCommand('extension.tracking', (url: string, event: any, channel: any, alias: any) => {
+	context.subscriptions.push(vscode.commands.registerCommand('extension.tracking', (url: string, event: any, channel: any, alias: any, domains: any) => {
 		  let baseUrl = url || '';
 		  if (baseUrl === ''){
 			  return
@@ -51,6 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
 			channel: channel,
 			alias: alias
 		  };
+		  var arr : domains[] = []; 
 		  var domains = config.domains;
 		//   let domains = config.domains;
 		  if (domains || Array.isArray(domains)) {
