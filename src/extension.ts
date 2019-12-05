@@ -61,13 +61,7 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 	  
 			const uri = new URL(baseUrl);
-			for (let i = 0; i < config.domains.length; i++) {
-			  let domain = config.domains[i];
-			  if (uri.host.match(domain)) {
-				shouldAddTrackingInfo = true;
-				break;
-			  }
-			}
+			
 	  
 			if (shouldAddTrackingInfo) {
 			  //remove locale
