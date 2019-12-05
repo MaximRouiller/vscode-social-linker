@@ -33,7 +33,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	}));
 
-	context.subscriptions.push(vscode.commands.registerCommand('extension.tracking', (url: string, event: any, channel: any, alias: any) => {
+	context.subscriptions.push(vscode.commands.registerCommand('socialLinker.tracking', (url: string, event: any, channel: any, alias: any) => {
 		  let baseUrl = url || '';
 		  if (baseUrl === ''){
 			  return
