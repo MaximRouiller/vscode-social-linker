@@ -39,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
 			  return
 		  };
 	  
-		  const defaultDomains = [
+		  let defaultDomains = [
 			/(.*\.)?microsoft\.com$/,
 			/(.*\.)?msdn\.com$/,
 			/(.*\.)?visualstudio\.com$/,
@@ -51,7 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
 			channel: channel,
 			alias: alias
 		  };
-		  var domains : string[];
+		  var domains : RegExp[];
 		  domains = [];
 		  defaultDomains = domains;
 		  domains = config.domains;
