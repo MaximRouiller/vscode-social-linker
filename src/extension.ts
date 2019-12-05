@@ -51,17 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
 			channel: channel,
 			alias: alias
 		  };
-		  var domains : RegExp[];
-		  domains = [];
-		  defaultDomains = domains;
-		  domains = config.domains;
-		//   let domains = config.domains;
-		  if (domains || Array.isArray(domains)) {
-			domains = domains.concat(defaultDomains);
-		  } else {
-			domains = defaultDomains;
-		  }
-		  config.domains = domains;
+		  
 		  let shouldAddTrackingInfo = false;
 		  if (baseUrl) {
 	  
