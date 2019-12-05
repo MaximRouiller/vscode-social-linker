@@ -88,8 +88,7 @@ export function activate(context: vscode.ExtensionContext) {
 			return appendTrackingInfo(config, baseUrl);
 		  }
 		  return baseUrl;
-		}
-	  };
+		}));
 
 	  function appendTrackingInfo(config: { event: any; channel: any; alias: any; domains: any;}, link: string) {
 		const tracking =
