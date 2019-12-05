@@ -23,6 +23,11 @@
 					"type": "string",
 					"default": "",
 					"description": "Alias used to tag links"
+				},
+				"socialLinker.tracking":{
+					"type": "null",
+					"default": "",
+					"description": "Used for tracking domains"
 				}
 			}
 		},
