@@ -10,7 +10,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:socialLinker.setAlias"
+		"onCommand:socialLinker.setAlias",
+		"onCommand:socialLinker.tracking"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -21,6 +22,11 @@
 					"type": "string",
 					"default": "",
 					"description": "Alias used to tag links"
+				},
+				"socialLinker.tracking":{
+					"type": "null",
+					"default": "",
+					"description": "Used for tracking domains"
 				}
 			}
 		},
@@ -28,6 +34,10 @@
 			{
 				"command": "socialLinker.setAlias",
 				"title": "Social Linker: Set alias"
+			},
+			{
+				"command": "socialLinker.tracking",
+				"title": "Social Linker: Tracking"
 			}
 		]
 	},

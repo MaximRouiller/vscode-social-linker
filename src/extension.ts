@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { URL } from 'url';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -31,6 +32,65 @@ export function activate(context: vscode.ExtensionContext) {
 			vscode.window.showWarningMessage('Alias has been unset.');
 		}
 	}));
+
+	context.subscriptions.push(vscode.commands.registerCommand('socialLinker.tracking', (url: string, event: any, channel: any, alias: any) => {
+		  let baseUrl = url || '';
+		  if (baseUrl === ''){
+			  return
+		  };
+	  
+		  let defaultDomains = [
+			/(.*\.)?microsoft\.com$/,
+			/(.*\.)?msdn\.com$/,
+			/(.*\.)?visualstudio\.com$/,
+			/www.microsoftevents.com'/
+		  ];
+	  
+		  const config = {
+			event: event,
+			channel: channel,
+			alias: alias
+		  };
+		  
+		  let shouldAddTrackingInfo = false;
+		  if (baseUrl) {
+	  
+			var re = new RegExp("^(http|https)://", "i");
+			if (!re.test(baseUrl)) {
+			  baseUrl = `https://${baseUrl}`;
+			}
+	  
+			const uri = new URL(baseUrl);
+			
+	  
+			if (shouldAddTrackingInfo) {
+			  //remove locale
+			  const localeRegex = /^\/\w{2}-\w{2}/g;
+			  uri.pathname = uri.pathname.replace(localeRegex, '');
+	  
+			  baseUrl = uri.toString();
+			}
+		  }
+		  if (shouldAddTrackingInfo) {
+			return appendTrackingInfo(config, baseUrl);
+		  }
+		  return baseUrl;
+		}));
+
+	  function appendTrackingInfo(config: { event: any; channel: any; alias: any;}, link: string) {
+		const tracking =
+		  'WT.mc_id=' + config.event + '-' + config.channel + '-' + config.alias;
+		//respect or ignore currect query string
+		const separator = link.indexOf('?') > 0 ? '&' : '?';
+		//respect or ignore hash
+		let hash = '';
+		const hasHash = link.indexOf('#');
+		if (hasHash != -1) {
+		  hash = link.substr(hasHash);
+		  link = link.replace(hash, '');
+		}
+		return link + separator + tracking + hash;
+	  }
 
 
 }
