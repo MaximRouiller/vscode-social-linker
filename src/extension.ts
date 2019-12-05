@@ -51,7 +51,8 @@ export function activate(context: vscode.ExtensionContext) {
 			channel: channel,
 			alias: alias
 		  };
-		  var arr : domains[] = []; 
+		  var domains : string[];
+		  domains = [];
 		  domains = config.domains;
 		//   let domains = config.domains;
 		  if (domains || Array.isArray(domains)) {
